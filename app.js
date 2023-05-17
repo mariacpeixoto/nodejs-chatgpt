@@ -50,7 +50,8 @@ app.post("/cadastrar", async function (req, res) {
       .split(/\s+/)
       .filter((word) => word.length > 2)
       .slice(0, 100)
-      .join(", ");
+      .join(", ")
+      .toLowerCase();
 
     post
       .create({
