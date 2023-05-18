@@ -4,6 +4,6 @@
 
 ![form-chatgpt](https://github.com/mariacpeixoto/nodejs-chatgpt/assets/83721653/59813c66-95a3-4ff8-adec-c642c1cfb0ef)
 
-![consulta-chatgpt](https://github.com/mariacpeixoto/nodejs-chatgpt/assets/83721653/fa2557f0-2178-45db-ac09-54f0afeef4f1)
+![consulta-chatgpt](https://github.com/mariacpeixoto/nodejs-chatgpt/assets/83721653/22b8adfc-5d9d-4247-add6-66e5bebb0607)
 
-![banco-chatgpt](https://github.com/mariacpeixoto/nodejs-chatgpt/assets/83721653/65aa37c6-d6c5-4ce9-a68a-f7c2ea53af99)
+![banco-chatgpt](https://github.com/mariacpeixoto/nodejs-chatgpt/assets/83721653/29022ced-105e-49a7-9a90-530561ef1d57)
