@@ -32,26 +32,28 @@ app.post("/cadastrar", async function (req, res) {
   });
   const openai = new OpenAIApi(configuration);
 
-  const messages = [];
+  const messagesDescricao = [];
   try {
     const { produto, marca, modelo } = req.body;
-    const response = `O produto ${produto}, da marca ${marca}, modelo ${modelo}, possui a seguinte descrição:`;
-    messages.push({ role: "user", content: response });
+    const responseD = `O produto ${produto}, da marca ${marca}, modelo ${modelo}, possui a seguinte descrição:`;
+    messagesDescricao.push({ role: "user", content: responseD });
 
-    const completion = await openai.createChatCompletion({
+    const completionD = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages: messages,
+      messages: messagesDescricao,
     });
 
-    const descricao = completion.data.choices[0].message.content;
-    const palavra_chave = descricao
-      .replace(/[^\w\s]|_/g, "")
-      .replace(/\d+/g, "")
-      .split(/\s+/)
-      .filter((word) => word.length > 2)
-      .slice(0, 100)
-      .join(", ")
-      .toLowerCase();
+    const descricao = completionD.data.choices[0].message.content;
+
+    const messagesPalavras = [];
+    const responseP = `Preciso de 100 palavras-chave individuais sem repetições, em letras minusculas e separadas apenas por vírgula para essa descrição: ${descricao}`;
+    messagesPalavras.push({ role: "user", content: responseP });
+
+    const completionP = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: messagesPalavras,
+    });
+    const palavras_chave = completionP.data.choices[0].message.content;
 
     post
       .create({
@@ -59,7 +61,7 @@ app.post("/cadastrar", async function (req, res) {
         marca,
         modelo,
         descricao,
-        palavra_chave,
+        palavras_chave,
       })
       .then(function () {
         res.redirect("/consulta");

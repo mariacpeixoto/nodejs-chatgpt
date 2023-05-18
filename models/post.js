@@ -13,7 +13,7 @@ const Produtos = db.sequelize.define("produtos", {
   descricao: {
     type: db.Sequelize.TEXT,
   },
-  palavra_chave: {
+  palavras_chave: {
     type: db.Sequelize.TEXT,
   },
 });
